@@ -3,7 +3,7 @@ import Input from "./input"
 import Money from "./money"
 import Select from "./select"
 
-export {
+export default {
   Checkbox,
   Input,
   Money,
