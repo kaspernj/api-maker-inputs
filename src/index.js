@@ -1,7 +1,7 @@
-import Checkbox from "./checkbox.jsx"
-import Input from "./input.jsx"
-import Money from "./money.jsx"
-import Select from "./select.jsx"
+import Checkbox from "./checkbox"
+import Input from "./input"
+import Money from "./money"
+import Select from "./select"
 
 export {
   Checkbox,
