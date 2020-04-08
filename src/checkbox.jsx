@@ -9,6 +9,7 @@ export default class ApiMakerCheckbox extends React.Component {
     defaultValue: 1,
     zeroInput: true
   }
+
   static propTypes = {
     attribute: PropTypes.string,
     className: PropTypes.string,
