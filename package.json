@@ -1,0 +1,24 @@
+{
+  "name": "@kaspernj/api-maker-inputs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaspernj/api-maker-inputs.git"
+  },
+  "author": "kaspernj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaspernj/api-maker-inputs/issues"
+  },
+  "homepage": "https://github.com/kaspernj/api-maker-inputs#readme",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "inflection": "^1.12.0",
+    "prop-types": "^15.7.2"
+  }
+}
