@@ -11,6 +11,7 @@ export default class ApiMakerInput extends React.Component {
     id: PropTypes.string,
     model: PropTypes.object,
     name: PropTypes.string,
+    onChange: PropTypes.func,
     type: PropTypes.string
   }
 
@@ -22,7 +23,7 @@ export default class ApiMakerInput extends React.Component {
   }
 
   render() {
-    const { attribute, className, id, model, name, type, ...restProps } = this.props
+    const { attribute, className, id, model, name, onChange, type, ...restProps } = this.props
 
     return (
       <input
