@@ -38,6 +38,17 @@ export default class ApiMakerInput extends React.Component {
     )
   }
 
+  formatValue(value) {
+    // We need to use a certain format for datetime-local
+    if (this.inputType() == "datetime-local" && value instanceof Date) {
+      return I18n.strftime(value, "%Y-%m-%dT%H:%M:%S")
+    } else if (this.inputType() == "date" && value instanceof Date) {
+      return I18n.strftime(value, "%Y-%m-%d")
+    }
+
+    return value
+  }
+
   inputClassName() {
     const classNames = []
 
@@ -56,17 +67,6 @@ export default class ApiMakerInput extends React.Component {
 
       return this.formatValue(this.props.model[this.props.attribute]())
     }
-  }
-
-  formatValue(value) {
-    // We need to use a certain format for datetime-local
-    if (this.inputType() == "datetime-local" && value instanceof Date) {
-      return I18n.strftime(value, "%Y-%m-%dT%H:%M:%S")
-    } else if (this.inputType() == "date" && value instanceof Date) {
-      return I18n.strftime(value, "%Y-%m-%d")
-    }
-
-    return value
   }
 
   inputId() {
@@ -98,6 +98,8 @@ export default class ApiMakerInput extends React.Component {
   // This fixes an issue in Firefox and ActiveStorage, where uploads would be a blank string if a file wasn't chosen
   getBlankInputName() {
     const value = this.refs.input.value
-    return (this.props.type == "file" && value == "")
+
+    if (this.props.type == "file" && value == "")
+      return true
   }
 }
