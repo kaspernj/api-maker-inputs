@@ -1,7 +1,7 @@
-const Checkbox = require("./checkbox").default
-const Input = require("./input").default
-const Money = require("./money").default
-const Select = require("./select").default
+const Checkbox = require("./checkbox")
+const Input = require("./input")
+const Money = require("./money")
+const Select = require("./select")
 
 module.exports = {
   Checkbox,
