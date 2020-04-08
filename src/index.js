@@ -1,9 +1,9 @@
-const Checkbox = require("./checkbox")
-const idForComponent = require("./id-for-component")
-const Input = require("./input")
-const Money = require("./money")
-const nameForComponent = require("./name-for-component")
-const Select = require("./select")
+import Checkbox from "./checkbox"
+import idForComponent from "./id-for-component"
+import Input from "./input"
+import Money from "./money"
+import nameForComponent from "./name-for-component"
+import Select from "./select"
 
 export {
   Checkbox,
