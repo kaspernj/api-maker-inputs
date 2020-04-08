@@ -3,7 +3,7 @@ const Input = require("./input")
 const Money = require("./money")
 const Select = require("./select")
 
-module.exports = {
+export {
   Checkbox,
   Input,
   Money,
