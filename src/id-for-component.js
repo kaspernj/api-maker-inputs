@@ -1,3 +1,5 @@
+const inflection = require("inflection")
+
 export default function ApiMakerIdForComponent(component) {
   if (component.props.id) {
     return component.props.id
