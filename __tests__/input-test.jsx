@@ -1,18 +1,16 @@
+import Adapter from "enzyme-adapter-react-16"
+import Enzyme, { shallow } from "enzyme"
 import Input from "../src/input"
 import React from "react"
-import TestRenderer from "react-test-renderer"
 
-test("something", () => {
-  const renderer = TestRenderer.create(
+Enzyme.configure({adapter: new Adapter()})
+
+test("sets the given name on the generated input element", () => {
+  const wrapper = shallow(
     <Input name="user[name]" />
   )
-  const instance = renderer.root
-  const component = instance.findByType(Input)
+  const component = wrapper.find("input")
+  const rawInputName = component.props().name
 
-  console.log(component.refs)
-
-  const rawInputName = component.refs.input.name
-
-  expect(rawInputName).toEq("user[name]")
-  console.log("Hello world")
+  expect(rawInputName).toEqual("user[name]")
 })
