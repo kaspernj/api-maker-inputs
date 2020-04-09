@@ -23,20 +23,33 @@ export default class ApiMakerInput extends React.Component {
   }
 
   render() {
-    const { attribute, className, id, model, name, onChange, type, ...restProps } = this.props
+    const { attribute, id, model, name, onChange, type, ...restProps } = this.props
 
-    return (
-      <input
-        className={classNames("form-control", className)}
-        defaultValue={this.inputDefaultValue()}
-        id={this.inputId()}
-        name={this.inputName()}
-        onChange={(e) => this.onInputChanged(e)}
-        ref="input"
-        type={this.inputType()}
-        {...restProps}
-      />
-    )
+    if (type == "textarea") {
+      return (
+        <textarea
+          defaultValue={this.inputDefaultValue()}
+          id={this.inputId()}
+          name={this.inputName()}
+          onChange={(e) => this.onInputChanged(e)}
+          ref="input"
+          type={this.inputType()}
+          {...restProps}
+        />
+      )
+    } else {
+      return (
+        <input
+          defaultValue={this.inputDefaultValue()}
+          id={this.inputId()}
+          name={this.inputName()}
+          onChange={(e) => this.onInputChanged(e)}
+          ref="input"
+          type={this.inputType()}
+          {...restProps}
+        />
+      )
+    }
   }
 
   formatValue(value) {
@@ -48,15 +61,6 @@ export default class ApiMakerInput extends React.Component {
     }
 
     return value
-  }
-
-  inputClassName() {
-    const classNames = []
-
-    if (this.props.className)
-      classNames.push(this.props.className)
-
-    return classNames.join(" ")
   }
 
   inputDefaultValue() {
