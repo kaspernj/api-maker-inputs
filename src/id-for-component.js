@@ -6,6 +6,8 @@ export default function ApiMakerIdForComponent(component) {
   } else if (component.props.model) {
     return `${component.props.model.modelClassData().paramKey}_${inflection.underscore(component.props.attribute)}`
   } else if (component.state.generatedInputId) {
+    return component.state.generatedInputId
+  } else {
     const generatedInputId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
     component.setState({generatedInputId})
     return generatedInputId

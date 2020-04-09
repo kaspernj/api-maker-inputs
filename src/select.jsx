@@ -40,20 +40,22 @@ export default class ApiMakerBootstrapSelect extends React.Component {
         name={this.inputName()}
         ref="select"
         {...restProps}
-        >
+      >
         {this.includeBlank() &&
           <option />
         }
-        {options && options.map(option => (
-          <option key={`select-option-${option[1]}`} value={option[1]}>{option[0]}</option>
-        ))}
+        {options && options.map(option =>
+          <option key={`select-option-${option[1]}`} value={option[1]}>
+            {option[0]}
+          </option>
+        )}
         {children}
       </select>
     )
   }
 
   includeBlank() {
-    if (this.props.includeBlank || !this.props.multiple) {
+    if (this.props.includeBlank && !this.props.multiple) {
       return true
     } else {
       return false
