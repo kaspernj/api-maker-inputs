@@ -5,11 +5,11 @@ export default function ApiMakerIdForComponent(component) {
     return component.props.id
   } else if (component.props.model) {
     return `${component.props.model.modelClassData().paramKey}_${inflection.underscore(component.props.attribute)}`
-  } else if (component.state.generatedInputId) {
-    return component.state.generatedInputId
+  } else if (component.generatedInputId) {
+    return component.generatedInputId
   } else {
     const generatedInputId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
-    component.setState({generatedInputId})
+    component.generatedInputId = generatedInputId
     return generatedInputId
   }
 }
