@@ -1,4 +1,5 @@
 import formatNumber from "format-number"
+import { MoneyFormatter } from "@kaspernj/api-maker"
 import PropTypes from "prop-types"
 import PropTypesExact from "prop-types-exact"
 import React from "react"
