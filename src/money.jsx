@@ -12,6 +12,7 @@ export default class ApiMakerInputsMoney extends React.Component {
     className: PropTypes.string,
     currenciesCollection: PropTypes.array.isRequired,
     currencyName: PropTypes.string,
+    id: PropTypes.string,
     model: PropTypes.object,
     name: PropTypes.string,
     onChange: PropTypes.func,
@@ -121,7 +122,11 @@ export default class ApiMakerInputsMoney extends React.Component {
   }
 
   inputId() {
-    return `${this.props.model.modelClassData().paramKey}_${inflection.underscore(this.props.attribute)}`
+    if (this.props.id) {
+      return this.props.id
+    } else {
+      return `${this.props.model.modelClassData().paramKey}_${inflection.underscore(this.props.attribute)}`
+    }
   }
 
   onCurrencyChanged() {
