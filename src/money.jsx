@@ -1,4 +1,5 @@
 import formatNumber from "format-number"
+import idForComponent from "./id-for-component"
 import { MoneyFormatter } from "@kaspernj/api-maker"
 import PropTypes from "prop-types"
 import PropTypesExact from "prop-types-exact"
@@ -12,6 +13,7 @@ export default class ApiMakerInputsMoney extends React.Component {
     className: PropTypes.string,
     currenciesCollection: PropTypes.array.isRequired,
     currencyName: PropTypes.string,
+    id: PropTypes.string,
     model: PropTypes.object,
     name: PropTypes.string,
     onChange: PropTypes.func,
@@ -121,7 +123,7 @@ export default class ApiMakerInputsMoney extends React.Component {
   }
 
   inputId() {
-    return `${this.props.model.modelClassData().paramKey}_${inflection.underscore(this.props.attribute)}`
+    return idForComponent(this)
   }
 
   onCurrencyChanged() {
