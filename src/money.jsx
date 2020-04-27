@@ -144,9 +144,14 @@ export default class ApiMakerInputsMoney extends React.Component {
 
   setCents() {
     let whole = MoneyFormatter.stringToFloat(this.refs.whole.value)
-    let cents = parseInt(whole * 100)
-    let oldCents = parseInt(this.refs.input.value)
-    this.refs.input.value = cents
+    let cents = parseInt(whole * 100, 10)
+    let oldCents = parseInt(this.refs.input.value, 10)
+
+    if (cents) {
+      this.refs.input.value = cents
+    } else{
+      this.refs.input.value = ''
+    }
 
     if (this.props.onChange && oldCents != cents)
       this.props.onChange()
