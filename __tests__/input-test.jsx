@@ -14,3 +14,23 @@ test("sets the given name on the generated input element", () => {
 
   expect(rawInputName).toEqual("user[name]")
 })
+
+test("sets a random id", () => {
+  const wrapper = shallow(
+    <Input />
+  )
+  const component = wrapper.find("input")
+  const rawInputId = component.props().id
+
+  expect(rawInputId).toMatch(/^[a-z0-9]{21,22}$/m)
+})
+
+test("sets the given id", () => {
+  const wrapper = shallow(
+    <Input id="mine" />
+  )
+  const component = wrapper.find("input")
+  const rawInputId = component.props().id
+
+  expect(rawInputId).toEqual("mine")
+})
